@@ -1,0 +1,26 @@
+{
+  "name": "bowling-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server",
+    "start:inspect" :"nodemon --inspect-brk src/server",
+    "test": "mocha test/**/*.spec.js --require babel-polyfill --compilers js:babel-register"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-node8": "^1.2.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.1",
+    "nodemon": "^1.15.1"
+  }
+}
