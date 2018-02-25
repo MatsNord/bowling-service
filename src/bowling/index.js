@@ -17,7 +17,9 @@ const getGameReducer = () => {
   const game = new Game(); 
   const reducer = ( fn ) => ( score, frame, idx, frames ) => {
     fn.roll(frame.first);
-    fn.roll(frame.second);
+    if (frame.first !== 10 || idx === 9) {
+      fn.roll(frame.second);
+    }
     return idx !== 9 ? score : score + fn.score();
   };
   return reducer(game);
