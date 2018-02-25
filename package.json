@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/server",
-    "start:inspect" :"nodemon --inspect-brk src/server",
+    "start:inspect": "nodemon --inspect-brk src/server",
     "test": "mocha test/**/*.spec.js --require babel-polyfill --compilers js:babel-register"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
