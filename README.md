@@ -26,9 +26,6 @@ response:
 `{score: <num>}`
 
 
-up to ten frames. If you play more, you do that on your own risk. Just as it was for real :)
-
-
 ### Start debug
 npm run start:inspect
 
@@ -36,3 +33,7 @@ npm run start:inspect
 
 ## About
 This is a little experimental
+
+
+#Static content
+There is a virtual path `/bowling` mapped to the directory /src/static. The `deployed-static` has an Angular 5 App deployed that can be used to test the service.
