@@ -1,9 +1,11 @@
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-var logger = require('morgan');
-var fs = require('fs');
+const logger = require('morgan');
+const fs = require('fs');
+const path = require('path');
+
 require('babel-register');
 
 const bowlingControler = require('./controllers/bowling');
@@ -14,6 +16,8 @@ app.use(cors());
 
 app.use(logger('common', {stream: fs.createWriteStream('./access.log', {flags: 'a'})}));
 app.use(logger('dev'));
+
+app.use('/bowling', express.static(path.join(__dirname, 'public')));
 
 // Set basic headers to allow access from othter enviroment (port)
 app.use((req, res, next) => {
