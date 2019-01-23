@@ -6,6 +6,11 @@ pipeline {
         git(url: 'https://github.com/MatsNord/bowling-service.git', branch: 'master', credentialsId: 'MatsNord', poll: true)
       }
     }
+    stage('Dependencies') {
+      steps {
+        bat 'npm install'
+      }
+    }
   }
   environment {
     CI = 'true'
