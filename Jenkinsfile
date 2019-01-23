@@ -16,6 +16,11 @@ pipeline {
         bat(script: 'npm run test', label: 'Test', returnStatus: true, returnStdout: true)
       }
     }
+    stage('') {
+      steps {
+        archiveArtifacts './build/**/*.xml'
+      }
+    }
   }
   environment {
     CI = 'true'
