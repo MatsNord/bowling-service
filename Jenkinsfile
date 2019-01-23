@@ -17,6 +17,10 @@ pipeline {
       }
     }
   }
+   post {
+        always {
+          junit 'build/reports/**/*.xml'
+        }
   environment {
     CI = 'true'
   }
