@@ -11,6 +11,11 @@ pipeline {
         bat 'npm install'
       }
     }
+    stage('Test') {
+      steps {
+        bat(script: 'npm run test', label: 'Test', returnStatus: true, returnStdout: true)
+      }
+    }
   }
   environment {
     CI = 'true'
