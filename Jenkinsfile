@@ -23,6 +23,10 @@ pipeline {
   post {
     always {
       junit 'build/reports/**/*.xml'
+      xunit (
+              thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
+              tools: [ JUnit(pattern: 'build/reports/**/*.xml') ])
+          )
 
     }
 
