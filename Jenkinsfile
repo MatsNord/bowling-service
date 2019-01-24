@@ -16,11 +16,6 @@ pipeline {
         bat(script: 'npm run test', label: 'Test', returnStatus: true, returnStdout: true)
       }
     }
-    stage('Notify') {
-      steps {
-        mail(subject: 'Bowling ', body: 'Build', from: 'Jenkins', to: 'mats.nord@sigma.se')
-      }
-    }
   }
   environment {
     CI = 'true'
