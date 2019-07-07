@@ -25,7 +25,7 @@ pipeline {
   }
   environment {
     registryCredential = 'dockerhub'
-    registry = 'matsnord/dockertest'
+    registry = 'docker.io'
   }
   post {
     always {
