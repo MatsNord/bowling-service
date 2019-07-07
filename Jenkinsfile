@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node:latest'
+      image 'node:12-alpine'
       args '-p 3000:3000'
     }
 
@@ -25,6 +25,7 @@ pipeline {
   }
   environment {
     registryCredential = 'dockerhub'
+    registry = 'matsnord/dockertest'
   }
   post {
     always {
