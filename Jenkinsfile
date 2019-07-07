@@ -9,17 +9,11 @@ pipeline {
     stage('Source') {
       steps {
         git(url: 'https://github.com/MatsNord/bowling-service.git', branch: 'master', credentialsId: 'MatsNord', poll: true)
-        sh 'npm install'
       }
     }
-    stage('Dependencies') {
+    stage('') {
       steps {
-        sh 'npm install'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh 'npm run test'
+        node(label: 'node')
       }
     }
   }
