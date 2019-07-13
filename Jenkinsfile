@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'nodejs1'
+    }
+
+  }
   stages {
     stage('Source') {
       steps {
@@ -18,7 +23,7 @@ pipeline {
     }
   }
   environment {
-    nodejs1 = 'true'
+    CI = 'true'
   }
   post {
     always {
