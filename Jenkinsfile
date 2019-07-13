@@ -1,8 +1,7 @@
 pipeline {
   agent {
     docker {
-      args '-p 3000:3000'
-      image 'node:12.6.0-alpine'
+      image 'node'
     }
 
   }
@@ -19,7 +18,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'npm run test'
+        powershell 'npm run test'
       }
     }
   }
