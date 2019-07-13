@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-      image 'node'
       args '-p 3000:3000'
+      image 'node:12.6.0-alpine'
     }
 
   }
@@ -22,10 +22,6 @@ pipeline {
         sh 'npm run test'
       }
     }
-  }
-  environment {
-    registryCredential = 'dockerhub'
-    registry = 'docker.io'
   }
   post {
     always {
