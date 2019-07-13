@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Source') {
       steps {
-        git(url: 'https://github.com/MatsNord/bowling-service.git', branch: 'master', credentialsId: 'MatsNord', poll: true)
+        git(url: 'https://github.com/MatsNord/bowling-service.git', branch: 'test-dockerjenkins', credentialsId: 'MatsNord', poll: true, changelog: true)
       }
     }
     stage('Dependencies') {
