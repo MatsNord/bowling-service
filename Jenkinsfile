@@ -8,17 +8,17 @@ pipeline {
   stages {
     stage('Source') {
       steps {
-        git(url: 'https://github.com/MatsNord/bowling-service.git', branch: 'agent-test', credentialsId: 'MatsNord', poll: true)
+        git(url: 'git@github.com:MatsNord/bowling-service.git', branch: 'agent-test', credentialsId: 'MatsNord')
       }
     }
     stage('Dependencies') {
       steps {
-        sh 'npm install'
+        sh '"npm install"'
       }
     }
     stage('Test') {
       steps {
-        sh 'npm run test'
+        sh '"npm run test"'
       }
     }
   }
