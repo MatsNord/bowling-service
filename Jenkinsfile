@@ -6,11 +6,6 @@ pipeline {
 
   }
   stages {
-    stage('Source') {
-      steps {
-        git(url: 'https://github.com/MatsNord/bowling-service.git', branch: 'agent-test', credentialsId: 'GitHub')
-      }
-    }
     stage('Dependencies') {
       steps {
         bat(script: 'npm install', returnStdout: true, returnStatus: true)
