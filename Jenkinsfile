@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Dependencies') {
       steps {
-        bat 'npm install'
+        bat(script: 'npm install', label: 'install')
       }
     }
     stage('Test') {
