@@ -13,12 +13,12 @@ pipeline {
     }
     stage('Deps') {
       steps {
-        sh 'npm install'
+        powershell 'npm i'
       }
     }
     stage('Test') {
       steps {
-        sh 'npm run test'
+        powershell 'npm run test'
       }
     }
   }
