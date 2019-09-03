@@ -13,12 +13,12 @@ pipeline {
     }
     stage('Dependencies') {
       steps {
-        bat 'npm install'
+        sh 'npm install'
       }
     }
     stage('Test') {
       steps {
-        bat(script: 'npm run test', label: 'Test', returnStatus: true, returnStdout: true)
+        sh 'npm run test'
       }
     }
   }
