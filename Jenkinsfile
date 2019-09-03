@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Deps') {
       steps {
-        powershell 'npm i'
+        bat 'npm i'
       }
     }
     stage('Test') {
