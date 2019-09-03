@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        powershell 'npm run test'
+        bat 'npm run test'
       }
     }
   }
