@@ -1,16 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('Dependencies') {
-      agent any
+    stage('Source') {
       steps {
-        bat 'npm install'
+        git(url: 'https://github.com/MatsNord/bowling-service.git', branch: 'agent-test', credentialsId: 'MatsNord')
+      }
+    }
+    stage('Deps') {
+      steps {
+        sh 'npm install'
       }
     }
     stage('Test') {
-      agent any
       steps {
-        sh '"npm run test"'
+        sh 'npm run test'
       }
     }
   }
