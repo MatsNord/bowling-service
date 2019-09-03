@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'nodejs1'
+    }
+
+  }
   stages {
     stage('Source') {
       steps {
@@ -17,12 +22,14 @@ pipeline {
       }
     }
   }
+  environment {
+    CI = 'true'
+  }
   post {
     always {
       junit 'build/reports/**/*.xml'
+
     }
-  }
-  environment {
-    CI = 'true'
+
   }
 }
