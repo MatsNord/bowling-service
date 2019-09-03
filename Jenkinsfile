@@ -1,12 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Source') {
-      agent any
-      steps {
-        git(url: 'git@github.com:MatsNord/bowling-service.git', branch: 'agent-test', credentialsId: 'MatsNord')
-      }
-    }
     stage('Dependencies') {
       agent any
       steps {
