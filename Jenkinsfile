@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Deps') {
       steps {
-        powershell(script: 'npm install', label: 'Deps')
+        bat(script: 'npm install', returnStatus: true, returnStdout: true)
       }
     }
     stage('Test') {
