@@ -11,9 +11,9 @@ pipeline {
         bat 'npm i'
       }
     }
-    stage('Unit Test') {
+    stage('Parallell Tests') {
       parallel {
-        stage('Test') {
+        stage('Unit Test') {
           steps {
             bat 'npm run test'
           }
@@ -23,6 +23,12 @@ pipeline {
             powershell 'npm run test'
           }
         }
+      }
+    }
+    stage('Publish Artefact') {
+      steps {
+        sleep 10
+        powershell 'Write-Host "Publish..."'
       }
     }
   }
