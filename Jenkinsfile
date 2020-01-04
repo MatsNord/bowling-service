@@ -8,12 +8,21 @@ pipeline {
     }
     stage('Deps') {
       steps {
-        sh 'npm install'
+        powershell(script: 'npm install', label: 'Deps')
       }
     }
     stage('Test') {
-      steps {
-        sh 'npm run test'
+      parallel {
+        stage('Test') {
+          steps {
+            sh 'npm run test'
+          }
+        }
+        stage('') {
+          steps {
+            powershell(script: 'npm test', label: 'Test P')
+          }
+        }
       }
     }
   }
