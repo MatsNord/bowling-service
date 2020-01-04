@@ -15,12 +15,12 @@ pipeline {
       parallel {
         stage('Test') {
           steps {
-            sh 'npm run test'
+            bat(script: 'npm test', returnStatus: true, returnStdout: true)
           }
         }
-        stage('') {
+        stage('Test P') {
           steps {
-            powershell(script: 'npm test', label: 'Test P')
+            powershell(script: 'npm install', returnStatus: true, returnStdout: true)
           }
         }
       }
