@@ -11,9 +11,18 @@ pipeline {
         bat 'npm i'
       }
     }
-    stage('Test') {
-      steps {
-        bat 'npm run test'
+    stage('Unit Test') {
+      parallel {
+        stage('Test') {
+          steps {
+            bat 'npm run test'
+          }
+        }
+        stage('Integration Test') {
+          steps {
+            powershell 'npm run test'
+          }
+        }
       }
     }
   }
